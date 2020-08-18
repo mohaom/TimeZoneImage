@@ -47,11 +47,12 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:syntaxhighlighter/code -->
-<pre class="wp-block-syntaxhighlighter-code">powershell Set-TimeZone -Name 'Arab Standard Time'; echo "Done execting inside the Node!..."</pre>
+<pre class="wp-block-syntaxhighlighter-code">powershell Set-
+-Name '#TimeZone#'; echo "Done execting inside the Node!...";echo "Changing Time Zone to: #TimeZone#";</pre>
 <!-- /wp:syntaxhighlighter/code -->
 
 <!-- wp:paragraph -->
-<p>This will simply set the time zone to Arab Standard Time, but you can change that to whatever you want.</p>
+<p>This will simply set the time zone to your TimeZone Env Variable.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
