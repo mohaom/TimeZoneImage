@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  namespace: kube-system
+  name: wintimezonedaemon-ds
+spec:
+  selector:
+    matchLabels:
+      name: wintimezonedaemon-ds
+  template:
+    metadata:
+      labels:
+        name: wintimezonedaemon-ds
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+      - name: wintimezonedaemon
+        env:
+          - name: nodeIP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: timezone
+            value: <yourpreferedtimezone>
+          - name: user
+            value: <your-vmss-or-node-user>
+          - name: pwd
+            value: <your-vmss-or-node-password>
+        image: <yourimage> <youracr>.azurecr.io/<yourimagename>:latest
+        resources:
+          limits:
+            cpu: 300m
+            memory: 400M
+          requests:
+            cpu: 150m
+            memory: 200M

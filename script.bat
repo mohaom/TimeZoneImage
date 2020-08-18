@@ -1,0 +1,1 @@
+powershell Set-TimeZone -Name '#TimeZone#'; echo "Done execting inside the Node!..."

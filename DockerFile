@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+COPY plink.exe /
+COPY script.bat /
+COPY start.ps1 /
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; Set-ExecutionPolicy Unrestricted -Force;"]
+ENTRYPOINT ["powershell.exe", "c:\\start.ps1"] 
+
+
+
+
+ 
